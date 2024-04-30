@@ -38,7 +38,7 @@ with st.container():
 container = st.container(border=True)
 with st.container():
         st.write('ルーンのサブオプション')
-        colll1, colll2, colll3,colll4, colll5, colll6, = st.columns(6)
+        colll1, colll2, colll3,colll4, colll5, colll6 = st.columns(6)
         with colll1:
                 r1Az = st.number_input('ルーン1攻撃実数', 0)
                 r1Ap = st.number_input('ルーン1攻撃%', 0)
@@ -73,7 +73,7 @@ with st.container():
 container = st.container(border=True)
 with st.container():
         st.write('ルーンの銀河石と本')
-        collll1, collll2, collll3,collll4, collll5, collll6, = st.columns(6)
+        collll1, collll2, collll3,collll4, collll5, collll6 = st.columns(6)
         with collll1:
                 r1ginga = st.selectbox('ルーン1の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
                 r1book = st.selectbox('ルーン1の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
@@ -92,6 +92,23 @@ with st.container():
         with collll6:
                 r6ginga = st.selectbox('ルーン6の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
                 r6book = st.selectbox('ルーン6の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+
+container = st.container(border=True)
+with st.container():
+        st.write('その他の情報')
+        colllll1, colllll2, colllll3,colllll4,colllll5 = st.columns(5)
+        with colllll1:
+               equipWeapon = st.selectbox('今装備してる武器',['火','水','風','光','闇'])
+        with colllll2:
+               AttBuff = st.number_input('攻撃バフレベル',0,10)
+        with colllll3:
+               CdBuff = st.number_input('クリダメバフレベル',0,10)
+        with colllll4:
+               CpBuff = st.number_input('クリ率バフレベル',0,10)
+        with colllll5:
+               food = st.selectbox('料理',['無し','攻撃+493','クリダメ+20.8%','クリ率+11.4%'])
+
+
 
 weaponDic = {'その他':0,
               '攻撃実数S':50, '攻撃実数A':40,'攻撃実数B':30,

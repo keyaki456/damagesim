@@ -9,9 +9,10 @@ with coll2:
 with coll3:
     Cliper = st.number_input('クリ率', 0.0)
  
+
 container = st.container(border=True)
 with st.container():
-    col1, col2 = st.columns(2)
+    col1, col2,col3,col4 = st.columns(4)
     with col1:
         selected_item = st.selectbox('火武器の赤宝石',
                         ['攻撃実数S', '攻撃実数A','攻撃実数B',
@@ -44,12 +45,24 @@ with st.container():
                         'クリダメS', 'クリダメA','クリダメB',
                         'クリ率S', 'クリ率A','クリ率B'
                         ])
-        selected_item = st.selectbox(
-                        'サポート武器の赤宝石',
+        selected_item = st.selectbox('サポート武器赤宝石',
                         ['攻撃実数S', '攻撃実数A','攻撃実数B',
                         '攻撃%S', '攻撃%A','攻撃%B',
                         'クリダメS', 'クリダメA','クリダメB',
-                        'クリ率S', 'クリ率A','クリ率B'
-                        ])
+                        'クリ率S', 'クリ率A','クリ率B'])
+    with col3:
+                selected_item = st.selectbox('ルーン1主オプ',
+                        ['攻撃実数'])
+                selected_item = st.selectbox('ルーン2主オプ',
+                        ['攻撃実数','攻撃%','クリダメ','栗率'])
+                selected_item = st.selectbox('ルーン3主オプ',
+                        ['防御実数'])
+    with col4:
+                selected_item = st.selectbox('ルーン4主オプ',
+                        ['攻撃実数','攻撃%','クリダメ','栗率'])
+                selected_item = st.selectbox('ルーン5主オプ',
+                        ['体力実数'])
+                selected_item = st.selectbox('ルーン6主オプ',
+                        ['攻撃実数','攻撃%','クリダメ','栗率'])
 
-
+colll1, colll2, colll3,colll4, colll5, colll6, = st.columns(6)

@@ -1,4 +1,7 @@
 import streamlit as st
+
+st.set_page_config(layout="wide")
+
 st.title('サマナクロ宝石ルーン銀河石魔法書シミュ')
 st.write('召喚士の武器を外して、召喚獣のルーンを外した状態の、召喚獣の攻撃力とクリダメとクリ率をここに手入力する')
 

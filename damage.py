@@ -54,15 +54,15 @@ with st.container():
                 selected_item = st.selectbox('ルーン1主オプ',
                         ['攻撃実数'])
                 selected_item = st.selectbox('ルーン2主オプ',
-                        ['攻撃実数','攻撃%','クリダメ','栗率'])
+                        ['攻撃実数','攻撃%','クリダメ','クリ率','その他'])
                 selected_item = st.selectbox('ルーン3主オプ',
                         ['防御実数'])
     with col4:
                 selected_item = st.selectbox('ルーン4主オプ',
-                        ['攻撃実数','攻撃%','クリダメ','栗率'])
+                        ['攻撃実数','攻撃%','クリダメ','クリ率','その他'])
                 selected_item = st.selectbox('ルーン5主オプ',
                         ['体力実数'])
                 selected_item = st.selectbox('ルーン6主オプ',
-                        ['攻撃実数','攻撃%','クリダメ','栗率'])
+                        ['攻撃実数','攻撃%','クリダメ','クリ率','その他'])
 
 colll1, colll2, colll3,colll4, colll5, colll6, = st.columns(6)

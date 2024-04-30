@@ -34,7 +34,7 @@ with st.container():
 
 container = st.container(border=True)
 with st.container():
-        st.write('ルーンのサブオプ')
+        st.write('ルーンのサブオプション')
         colll1, colll2, colll3,colll4, colll5, colll6, = st.columns(6)
         with colll1:
                 r1Az = st.number_input('ルーン1攻撃実数', 0)
@@ -66,3 +66,26 @@ with st.container():
                 r6Ap = st.number_input('ルーン6攻撃%', 0)
                 r6Cd = st.number_input('ルーン6クリダメ', 0)
                 r6Cp = st.number_input('ルーン6クリ率', 0)
+
+container = st.container(border=True)
+with st.container():
+        st.write('ルーンの銀河石と本')
+        collll1, collll2, collll3,collll4, collll5, collll6, = st.columns(6)
+        with collll1:
+                r1ginga = st.selectbox('ルーン1の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+                r1book = st.selectbox('ルーン1の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+        with collll2:
+                r2ginga = st.selectbox('ルーン2の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+                r2book = st.selectbox('ルーン2の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+        with collll3:
+                r3ginga = st.selectbox('ルーン3の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+                r3book = st.selectbox('ルーン3の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+        with collll4:
+                r4ginga = st.selectbox('ルーン1の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+                r4book = st.selectbox('ルーン1の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+        with collll5:
+                r5ginga = st.selectbox('ルーン2の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+                r5book = st.selectbox('ルーン2の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+        with collll6:
+                r6ginga = st.selectbox('ルーン3の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
+                r6book = st.selectbox('ルーン3の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])

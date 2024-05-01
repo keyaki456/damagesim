@@ -9,11 +9,25 @@ with coll1:
     Attack = st.number_input('Lv.90時の素の攻撃力(ペルナとアルヘンは1911)', 1911)
     accAz  = st.number_input('アカウントスキルの攻撃実数', 200)
 with coll2:
-    CriDam = st.number_input('素のクリダメ(ペルナとアルヘンは30)', 30)
+    Cridam = st.number_input('素のクリダメ(ペルナとアルヘンは30)', 30)
     accAp  = st.number_input('アカウントスキルの攻撃パーセント', 15)
 with coll3:
     Criper = st.number_input('素のクリ率(ペルナは15 アルヘンは21)', 21)
- 
+
+container = st.container(border=True)
+with st.container():
+    st.write('図鑑効果')
+    collllll1, collllll2,collllll3 = st.columns(3)
+    with collllll1:
+           zuAtta = st.number_input('召喚獣の図鑑効果攻撃',0)
+           star1  = st.number_input('その属性の星1召喚獣の図鑑効果攻撃実数',0)
+    with collllll2:
+           zuCridam = st.number_input('召喚獣の図鑑効果クリダメ',0)
+           star2    = st.number_input('その属性の星2召喚獣の図鑑効果攻撃実数',0)
+    with collllll3:
+           zuCriper = st.number_input('召喚獣の図鑑効果クリ率',0)
+           star2    = st.number_input('その属性の星3召喚獣の図鑑効果攻撃実数',0)
+           
 
 container = st.container(border=True)
 with st.container():

@@ -21,6 +21,7 @@ with st.container():
     with collllll1:
            zuAtta = st.number_input('召喚獣の図鑑効果攻撃',0)
            star1  = st.number_input('その属性の星1召喚獣の図鑑効果攻撃実数',0)
+           hondana= st.selectbox('その属性の本棚召喚獣攻撃レベル',[0,1,2,3])
     with collllll2:
            zuCridam = st.number_input('召喚獣の図鑑効果クリダメ',0)
            star2    = st.number_input('その属性の星2召喚獣の図鑑効果攻撃実数',0)

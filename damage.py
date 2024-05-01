@@ -45,6 +45,9 @@ with st.container():
         r1Main = st.selectbox('ルーン1主オプ',['攻撃実数'])
         r2Main = st.selectbox('ルーン2主オプ',['その他','攻撃実数','攻撃%','クリダメ','クリ率'])
         r3Main = st.selectbox('ルーン3主オプ',['防御実数'])
+        moukou = st.checkbox('猛攻セット')
+        gekido = st.checkbox('激怒セット')
+        yaiba  = st.checkbox('刃セット')
     with col4:
         r4Main = st.selectbox('ルーン4主オプ',['その他','攻撃実数','攻撃%','クリダメ','クリ率'])
         r5Main = st.selectbox('ルーン5主オプ',['体力実数'])

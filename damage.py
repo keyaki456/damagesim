@@ -7,10 +7,10 @@ st.title('サマナクロ攻撃クリダメクリ率計算機')
 coll1, coll2, coll3 = st.columns(3)
 with coll1:
     Attack = st.number_input('Lv.90時の素の攻撃力(ペルナとアルヘンは1911)', 1911)
-    accAz  = st.number_input('アカウントスキルの攻撃実数', 200)
+    accAz  = st.number_input('アカウントスキルの召喚獣攻撃実数', 200)
 with coll2:
     Cridam = st.number_input('素のクリダメ(ペルナとアルヘンは30)', 30)
-    accAp  = st.number_input('アカウントスキルの攻撃パーセント', 15)
+    accAp  = st.number_input('アカウントスキルの召喚獣攻撃パーセント', 15)
 with coll3:
     Criper = st.number_input('素のクリ率(ペルナは15 アルヘンは21)', 21)
 

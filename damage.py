@@ -25,6 +25,7 @@ with st.container():
     with collllll2:
            zuCridam = st.number_input('召喚獣の図鑑効果クリダメ',0)
            star2    = st.number_input('その属性の星2召喚獣の図鑑効果攻撃実数',0)
+           kenkyuu  = st.number_input('図鑑研究による攻撃実数',0)
     with collllll3:
            zuCriper = st.number_input('召喚獣の図鑑効果クリ率',0)
            star2    = st.number_input('その属性の星3召喚獣の図鑑効果攻撃実数',0)
@@ -118,8 +119,10 @@ with st.container():
         colllll1, colllll2, colllll3,colllll4,colllll5 = st.columns(5)
         with colllll1:
                equipWeapon = st.selectbox('今装備してる武器',['火','水','風','光','闇'])
+               cloth = st.number_input('衣装効果攻撃実数',0)
         with colllll2:
                AttBuff = st.number_input('攻撃バフレベル',0,10)
+               artifact= st.number_input('AFによる攻撃実数',0)
         with colllll3:
                CdBuff = st.number_input('クリダメバフレベル',0,10)
         with colllll4:
@@ -151,3 +154,5 @@ st.title('補正後の攻撃力')
 st.title('補正後のクリダメ')
 
 st.title('補正後のクリ率')
+
+st.title('攻撃×(100%+クリダメ%)/100×クリ率の値(火力指標)')

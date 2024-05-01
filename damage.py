@@ -3,15 +3,14 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 st.title('サマナクロ攻撃クリダメクリ率計算機')
-st.write('召喚士の武器を外して、召喚獣のルーンを外した状態の、召喚獣の攻撃力とクリダメとクリ率をここに手入力する')
 
 coll1, coll2, coll3 = st.columns(3)
 with coll1:
-    Attack = st.number_input('Lv.90時の素の攻撃力(ペルナとアルヘンは1911)', 0)
+    Attack = st.number_input('Lv.90時の素の攻撃力(ペルナとアルヘンは1911)', 1911)
 with coll2:
-    CriDam = st.number_input('素のクリダメ(ペルナとアルヘンは30)', 0)
+    CriDam = st.number_input('素のクリダメ(ペルナとアルヘンは30)', 30)
 with coll3:
-    Criper = st.number_input('素のクリ率(ペルナは15 アルヘンは21)', 0)
+    Criper = st.number_input('素のクリ率(ペルナは15 アルヘンは21)', 21)
  
 
 container = st.container(border=True)
@@ -126,3 +125,9 @@ bookDic   = {'その他':0,
              '攻撃%S':8, '攻撃%A':7.5,'攻撃%B':7,
              'クリダメS':9, 'クリダメA':8.3,'クリダメB':7.6,
              'クリ率S':5.4, 'クリ率A':5,'クリ率B':4.6}
+
+st.title('補正後の攻撃力')
+
+st.title('補正後のクリダメ')
+
+st.title('補正後のクリ率')

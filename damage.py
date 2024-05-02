@@ -23,11 +23,11 @@ with st.container():
            star1  = st.number_input('その属性の星1召喚獣の図鑑効果攻撃実数',0)
            hondana= st.selectbox('その属性の本棚召喚獣攻撃レベル',[0,1,2,3])
     with collllll2:
-           zuCridam = st.number_input('召喚獣の図鑑効果クリダメ',0)
+           zuCridam = st.number_input('召喚獣の図鑑効果クリダメ',0.0)
            star2    = st.number_input('その属性の星2召喚獣の図鑑効果攻撃実数',0)
            kenkyuu  = st.number_input('図鑑研究による攻撃実数',0)
     with collllll3:
-           zuCriper = st.number_input('召喚獣の図鑑効果クリ率',0)
+           zuCriper = st.number_input('召喚獣の図鑑効果クリ率',0.0)
            star2    = st.number_input('その属性の星3召喚獣の図鑑効果攻撃実数',0)
            
 
@@ -174,6 +174,8 @@ bookDic   = {'その他':0,
 AbuffDic={'0':0,'1':1.5,'2':1.54,'3':1.57,'4':1.60,'5':1.62,'6':1.64,'7':1.66,'8':1.68,'9':1.69,'10':1.70}
 DbuffDic={'0':0,'1':60,'2':80,'3':100,'4':110,'5':120,'6':130,'7':135,'8':140,'9':145,'10':150}
 PbuffDic={0:0,1:30,2:40,3:50,4:57,5:64,6:68,7:72,8:75,9:77,10:80}
+
+hondanaDic={0:0, 1:1.5, 2:3.0, 3:4.6}
 
 
 st.title('補正後の攻撃力')

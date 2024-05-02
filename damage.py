@@ -171,8 +171,8 @@ bookDic   = {'その他':0,
              'クリダメS':9, 'クリダメA':8.3,'クリダメB':7.6,
              'クリ率S':5.4, 'クリ率A':5,'クリ率B':4.6}
 
-AbuffDic={'0':0,'1':1.5,'2':1.54,'3':1.57,'4':1.60,'5':1.62,'6':1.64,'7':1.66,'8':1.68,'9':1.69,'10':1.70}
-DbuffDic={'0':0,'1':60,'2':80,'3':100,'4':110,'5':120,'6':130,'7':135,'8':140,'9':145,'10':150}
+AbuffDic={0:0,1:1.5,2:1.54,3:1.57,4:1.60,5:1.62,6:1.64,7:1.66,8:1.68,9:1.69,10:1.70}
+DbuffDic={0:0,1:60,2:80,3:100,4:110,5:120,6:130,7:135,8:140,9:145,10:150}
 PbuffDic={0:0,1:30,2:40,3:50,4:57,5:64,6:68,7:72,8:75,9:77,10:80}
 
 hondanaDic={0:0, 1:1.5, 2:3.0, 3:4.6}
@@ -181,15 +181,41 @@ hondanaDic={0:0, 1:1.5, 2:3.0, 3:4.6}
 st.title('補正後の攻撃力')
 
 st.title('補正後のクリダメ')
-
+afterCd = Cridam + zuCridam
+if equipWeapon=='火' : afterCd = afterCd + (weaponCdDic[fireweapon]) + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
+if equipWeapon=='水' : afterCd = afterCd + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon]) + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
+if equipWeapon=='風' : afterCd = afterCd + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon]) + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
+if equipWeapon=='光' : afterCd = afterCd + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon]) + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
+if equipWeapon=='闇' : afterCd = afterCd + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon]) + (weaponCdDic[supportweapon])
+if r2Main=='クリダメ' : afterCd = afterCd + mainOpDic['クリダメ']
+if r4Main=='クリダメ' : afterCd = afterCd + mainOpDic['クリダメ']
+if r6Main=='クリダメ' : afterCd = afterCd + mainOpDic['クリダメ']
+if gekido==True: afterCd = afterCd + 40
+afterCd = afterCd + r1Cd + r2Cd + r3Cd + r4Cd + r5Cd + r6Cd
+if r1ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r1ginga]
+if r2ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r2ginga]
+if r3ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r3ginga]
+if r4ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r4ginga]
+if r5ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r5ginga]
+if r6ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r6ginga]
+if r1book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r1book]
+if r2book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r2book]
+if r3book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r3book]
+if r4book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r4book]
+if r5book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r5book]
+if r6book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r6book]
+afterCd = afterCd + DbuffDic[CdBuff]
+if food=='クリダメ+20.8%': afterCd = afterCd+20.8
+if afterCd>400 : afterCd=400
+afterCd
 
 st.title('補正後のクリ率')
 afterCp = Criper + zuCriper
-if equipWeapon=='火' : afterCp = afterCp + weaponCpDic[fireweapon] + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
-if equipWeapon=='水' : afterCp = afterCp + weaponCpDic[fireweapon]/4 + (weaponCpDic[waterweapon]) + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
-if equipWeapon=='風' : afterCp = afterCp + weaponCpDic[fireweapon]/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon]) + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
-if equipWeapon=='光' : afterCp = afterCp + weaponCpDic[fireweapon]/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon]) + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
-if equipWeapon=='闇' : afterCp = afterCp + weaponCpDic[fireweapon]/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon]) + (weaponCpDic[supportweapon])
+if equipWeapon=='火' : afterCp = afterCp + (weaponCpDic[fireweapon]) + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+if equipWeapon=='水' : afterCp = afterCp + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon]) + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+if equipWeapon=='風' : afterCp = afterCp + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon]) + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+if equipWeapon=='光' : afterCp = afterCp + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon]) + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+if equipWeapon=='闇' : afterCp = afterCp + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon]) + (weaponCpDic[supportweapon])
 if r2Main=='クリ率' : afterCp = afterCp + mainOpDic['クリ率']
 if r4Main=='クリ率' : afterCp = afterCp + mainOpDic['クリ率']
 if r6Main=='クリ率' : afterCp = afterCp + mainOpDic['クリ率']

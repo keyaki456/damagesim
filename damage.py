@@ -181,7 +181,7 @@ hondanaDic={0:0, 1:1.5, 2:3.0, 3:4.6}
 st.title('補正後の攻撃力')
 groupA = Attack + 158
 
-groupB = accAp + hondanaDic[hondana]
+groupB = 100 + accAp + hondanaDic[hondana]
 if equipWeapon=='火' : groupB = groupB + (weaponApDic[fireweapon]) + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
 if equipWeapon=='水' : groupB = groupB + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon]) + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
 if equipWeapon=='風' : groupB = groupB + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon]) + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])

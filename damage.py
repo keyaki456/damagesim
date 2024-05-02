@@ -28,7 +28,7 @@ with st.container():
            kenkyuu  = st.number_input('図鑑研究による攻撃実数',0)
     with collllll3:
            zuCriper = st.number_input('召喚獣の図鑑効果クリ率',0.0)
-           star2    = st.number_input('その属性の星3召喚獣の図鑑効果攻撃実数',0)
+           star3    = st.number_input('その属性の星3召喚獣の図鑑効果攻撃実数',0)
            
 
 container = st.container(border=True)
@@ -171,7 +171,7 @@ bookDic   = {'その他':0,
              'クリダメS':9, 'クリダメA':8.3,'クリダメB':7.6,
              'クリ率S':5.4, 'クリ率A':5,'クリ率B':4.6}
 
-AbuffDic={0:0,1:1.5,2:1.54,3:1.57,4:1.60,5:1.62,6:1.64,7:1.66,8:1.68,9:1.69,10:1.70}
+AbuffDic={0:1,1:1.5,2:1.54,3:1.57,4:1.60,5:1.62,6:1.64,7:1.66,8:1.68,9:1.69,10:1.70}
 DbuffDic={0:0,1:60,2:80,3:100,4:110,5:120,6:130,7:135,8:140,9:145,10:150}
 PbuffDic={0:0,1:30,2:40,3:50,4:57,5:64,6:68,7:72,8:75,9:77,10:80}
 
@@ -179,6 +179,61 @@ hondanaDic={0:0, 1:1.5, 2:3.0, 3:4.6}
 
 
 st.title('補正後の攻撃力')
+groupA = Attack + 158
+
+groupB = accAp + hondanaDic[hondana]
+if equipWeapon=='火' : groupB = groupB + (weaponApDic[fireweapon]) + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
+if equipWeapon=='水' : groupB = groupB + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon]) + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
+if equipWeapon=='風' : groupB = groupB + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon]) + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
+if equipWeapon=='光' : groupB = groupB + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon]) + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
+if equipWeapon=='闇' : groupB = groupB + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon]) + (weaponApDic[supportweapon])
+if r2Main=='攻撃%' : groupB = groupB + mainOpDic['攻撃%']
+if r4Main=='攻撃%' : groupB = groupB + mainOpDic['攻撃%']
+if r6Main=='攻撃%' : groupB = groupB + mainOpDic['攻撃%']
+if moukou==True: groupB = groupB + 35
+groupB = groupB + r1Ap + r2Ap + r3Ap + r4Ap + r5Ap + r6Ap
+if r1ginga in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + gingaDic[r1ginga]
+if r2ginga in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + gingaDic[r2ginga]
+if r3ginga in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + gingaDic[r3ginga]
+if r4ginga in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + gingaDic[r4ginga]
+if r5ginga in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + gingaDic[r5ginga]
+if r6ginga in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + gingaDic[r6ginga]
+if r1book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r1book]
+if r2book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r2book]
+if r3book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r3book]
+if r4book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r4book]
+if r5book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r5book]
+if r6book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r6book]
+
+groupC = accAz + zuAtta + star1 + star2 + star3 + kenkyuu
+if equipWeapon=='火' : groupC = groupC + (weaponAzDic[fireweapon]) + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
+if equipWeapon=='水' : groupC = groupC + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon]) + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
+if equipWeapon=='風' : groupC = groupC + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon]) + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
+if equipWeapon=='光' : groupC = groupC + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon]) + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
+if equipWeapon=='闇' : groupC = groupC + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon]) + (weaponAzDic[supportweapon])
+if r1Main=='攻撃実数' : groupC = groupC + mainOpDic['攻撃実数']
+if r2Main=='攻撃実数' : groupC = groupC + mainOpDic['攻撃実数']
+if r4Main=='攻撃実数' : groupC = groupC + mainOpDic['攻撃実数']
+if r6Main=='攻撃実数' : groupC = groupC + mainOpDic['攻撃実数']
+groupC = groupC + r1Az + r2Az + r3Az + r4Az + r5Az + r6Az
+if r1ginga in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + gingaDic[r1ginga]
+if r2ginga in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + gingaDic[r2ginga]
+if r3ginga in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + gingaDic[r3ginga]
+if r4ginga in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + gingaDic[r4ginga]
+if r5ginga in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + gingaDic[r5ginga]
+if r6ginga in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + gingaDic[r6ginga]
+if r1book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r1book]
+if r2book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r2book]
+if r3book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r3book]
+if r4book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r4book]
+if r5book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r5book]
+if r6book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r6book]
+if food=='攻撃+493': groupC = groupC + 493
+groupC = groupC + cloth + artifact
+
+afterAttack = (groupA * groupB /100) + groupC
+afterAttack = afterAttack * AbuffDic[AttBuff]
+afterAttack
 
 st.title('補正後のクリダメ')
 afterCd = Cridam + zuCridam
@@ -192,18 +247,18 @@ if r4Main=='クリダメ' : afterCd = afterCd + mainOpDic['クリダメ']
 if r6Main=='クリダメ' : afterCd = afterCd + mainOpDic['クリダメ']
 if gekido==True: afterCd = afterCd + 40
 afterCd = afterCd + r1Cd + r2Cd + r3Cd + r4Cd + r5Cd + r6Cd
-if r1ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r1ginga]
-if r2ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r2ginga]
-if r3ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r3ginga]
-if r4ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r4ginga]
-if r5ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r5ginga]
-if r6ginga=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + gingaDic[r6ginga]
-if r1book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r1book]
-if r2book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r2book]
-if r3book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r3book]
-if r4book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r4book]
-if r5book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r5book]
-if r6book=='クリダメS'or'クリダメA'or'クリダメB': afterCd = afterCd + bookDic[r6book]
+if r1ginga in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + gingaDic[r1ginga]
+if r2ginga in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + gingaDic[r2ginga]
+if r3ginga in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + gingaDic[r3ginga]
+if r4ginga in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + gingaDic[r4ginga]
+if r5ginga in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + gingaDic[r5ginga]
+if r6ginga in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + gingaDic[r6ginga]
+if r1book  in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + bookDic[r1book]
+if r2book  in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + bookDic[r2book]
+if r3book  in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + bookDic[r3book]
+if r4book  in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + bookDic[r4book]
+if r5book  in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + bookDic[r5book]
+if r6book  in ('クリダメS','クリダメA','クリダメB'): afterCd = afterCd + bookDic[r6book]
 afterCd = afterCd + DbuffDic[CdBuff]
 if food=='クリダメ+20.8%': afterCd = afterCd+20.8
 if afterCd>400 : afterCd=400
@@ -221,21 +276,25 @@ if r4Main=='クリ率' : afterCp = afterCp + mainOpDic['クリ率']
 if r6Main=='クリ率' : afterCp = afterCp + mainOpDic['クリ率']
 afterCp = afterCp + yaiba*12
 afterCp = afterCp + r1Cp + r2Cp + r3Cp + r4Cp + r5Cp + r6Cp
-if r1ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r1ginga]
-if r2ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r2ginga]
-if r3ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r3ginga]
-if r4ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r4ginga]
-if r5ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r5ginga]
-if r6ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r6ginga]
-if r1book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r1book]
-if r2book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r2book]
-if r3book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r3book]
-if r4book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r4book]
-if r5book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r5book]
-if r6book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r6book]
+if r1ginga in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + gingaDic[r1ginga]
+if r2ginga in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + gingaDic[r2ginga]
+if r3ginga in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + gingaDic[r3ginga]
+if r4ginga in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + gingaDic[r4ginga]
+if r5ginga in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + gingaDic[r5ginga]
+if r6ginga in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + gingaDic[r6ginga]
+if r1book  in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + bookDic[r1book]
+if r2book  in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + bookDic[r2book]
+if r3book  in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + bookDic[r3book]
+if r4book  in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + bookDic[r4book]
+if r5book  in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + bookDic[r5book]
+if r6book  in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + bookDic[r6book]
 afterCp = afterCp + PbuffDic[CpBuff]
 if food=='クリ率+11.4%': afterCp = afterCp+11.4
 if afterCp>100 : afterCp=100
 afterCp
 
-st.title('(火力指標)')
+st.title('火力指標')
+st.write('攻撃力*(1-クリ率/100)+攻撃力*(1+クリダメ/100)*(クリ率/100)のこと')
+st.write('これが最も大きくなるように工夫しよう！')
+karyoku = afterAttack*(1-afterCp/100)+afterAttack*(1+afterCd/100)*(afterCp/100)
+karyoku

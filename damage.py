@@ -49,7 +49,7 @@ with st.container():
         r3Main = st.selectbox('ルーン3主オプ',['防御実数'])
         moukou = st.checkbox('猛攻セット')
         gekido = st.checkbox('激怒セット')
-        yaiba  = st.checkbox('刃セット')
+        yaiba  = st.slider('刃セット何セット',0,3)
     with col4:
         r4Main = st.selectbox('ルーン4主オプ',['その他','攻撃実数','攻撃%','クリダメ','クリ率'])
         r5Main = st.selectbox('ルーン5主オプ',['体力実数'])
@@ -119,10 +119,10 @@ with st.container():
         colllll1, colllll2, colllll3,colllll4,colllll5 = st.columns(5)
         with colllll1:
                equipWeapon = st.selectbox('今装備してる武器',['火','水','風','光','闇'])
-               cloth = st.number_input('衣装効果攻撃実数',0)
+               cloth = st.number_input('衣装攻撃実数',0)
         with colllll2:
                AttBuff = st.number_input('攻撃バフレベル',0,10)
-               artifact= st.number_input('AFによる攻撃実数',0)
+               artifact= st.number_input('AFの攻撃実数',0)
         with colllll3:
                CdBuff = st.number_input('クリダメバフレベル',0,10)
         with colllll4:
@@ -137,6 +137,28 @@ weaponDic = {'無し':0,
               '攻撃%S':11.7, '攻撃%A':10,'攻撃%B':8,
               'クリダメS':13.1, 'クリダメA':11.5,'クリダメB':10,
               'クリ率S':8.1, 'クリ率A':7,'クリ率B':6}
+weaponAzDic = {'無し':0,
+              '攻撃実数S':61, '攻撃実数A':53,'攻撃実数B':48,
+              '攻撃%S':0, '攻撃%A':0,'攻撃%B':0,
+              'クリダメS':0, 'クリダメA':0,'クリダメB':0,
+              'クリ率S':0, 'クリ率A':0,'クリ率B':0}
+weaponApDic = {'無し':0,
+              '攻撃実数S':0, '攻撃実数A':0,'攻撃実数B':0,
+              '攻撃%S':11.7, '攻撃%A':10,'攻撃%B':8,
+              'クリダメS':0, 'クリダメA':0,'クリダメB':0,
+              'クリ率S':0, 'クリ率A':0,'クリ率B':0}
+weaponCdDic = {'無し':0,
+              '攻撃実数S':0, '攻撃実数A':0,'攻撃実数B':0,
+              '攻撃%S':0, '攻撃%A':0,'攻撃%B':0,
+              'クリダメS':13.1, 'クリダメA':11.5,'クリダメB':10,
+              'クリ率S':0, 'クリ率A':0,'クリ率B':0}
+weaponCpDic = {'無し':0,
+              '攻撃実数S':0, '攻撃実数A':0,'攻撃実数B':0,
+              '攻撃%S':0, '攻撃%A':0,'攻撃%B':0,
+              'クリダメS':0, 'クリダメA':0,'クリダメB':0,
+              'クリ率S':8.1, 'クリ率A':7,'クリ率B':6}
+
+
 mainOpDic = {'その他':0,'攻撃実数':576,'攻撃%':51.2,'クリダメ':54,'クリ率':37}
 gingaDic  = {'その他':0,
              '攻撃実数S':56, '攻撃実数A':51,'攻撃実数B':46,
@@ -149,10 +171,43 @@ bookDic   = {'その他':0,
              'クリダメS':9, 'クリダメA':8.3,'クリダメB':7.6,
              'クリ率S':5.4, 'クリ率A':5,'クリ率B':4.6}
 
+AbuffDic={'0':0,'1':1.5,'2':1.54,'3':1.57,'4':1.60,'5':1.62,'6':1.64,'7':1.66,'8':1.68,'9':1.69,'10':1.70}
+DbuffDic={'0':0,'1':60,'2':80,'3':100,'4':110,'5':120,'6':130,'7':135,'8':140,'9':145,'10':150}
+PbuffDic={0:0,1:30,2:40,3:50,4:57,5:64,6:68,7:72,8:75,9:77,10:80}
+
+
 st.title('補正後の攻撃力')
 
 st.title('補正後のクリダメ')
 
+
 st.title('補正後のクリ率')
+afterCp = Criper + zuCriper
+if equipWeapon=='火' : afterCp = afterCp + weaponCpDic[fireweapon] + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+if equipWeapon=='水' : afterCp = afterCp + weaponCpDic[fireweapon]/4 + (weaponCpDic[waterweapon]) + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+if equipWeapon=='風' : afterCp = afterCp + weaponCpDic[fireweapon]/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon]) + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+if equipWeapon=='光' : afterCp = afterCp + weaponCpDic[fireweapon]/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon]) + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+if equipWeapon=='闇' : afterCp = afterCp + weaponCpDic[fireweapon]/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon]) + (weaponCpDic[supportweapon])
+if r2Main=='クリ率' : afterCp = afterCp + mainOpDic['クリ率']
+if r4Main=='クリ率' : afterCp = afterCp + mainOpDic['クリ率']
+if r6Main=='クリ率' : afterCp = afterCp + mainOpDic['クリ率']
+afterCp = afterCp + yaiba*12
+afterCp = afterCp + r1Cp + r2Cp + r3Cp + r4Cp + r5Cp + r6Cp
+if r1ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r1ginga]
+if r2ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r2ginga]
+if r3ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r3ginga]
+if r4ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r4ginga]
+if r5ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r5ginga]
+if r6ginga=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + gingaDic[r6ginga]
+if r1book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r1book]
+if r2book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r2book]
+if r3book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r3book]
+if r4book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r4book]
+if r5book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r5book]
+if r6book=='クリ率S'or'クリ率A'or'クリ率B': afterCp = afterCp + bookDic[r6book]
+afterCp = afterCp + PbuffDic[CpBuff]
+if food=='クリ率+11.4%': afterCp = afterCp+11.4
+if afterCp>100 : afterCp=100
+afterCp
 
 st.title('(火力指標)')

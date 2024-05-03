@@ -300,11 +300,11 @@ karyoku = afterAttack*(1-afterCp/100)+afterAttack*(1+afterCd/100)*(afterCp/100)
 karyoku
 
 with st.sidebar:
-       st.write('補正後の攻撃力')
-       afterAttack
-       st.write('補正後のクリダメ')
-       afterCd
-       st.write('補正後のクリ率')
-       afterCp
-       st.write('火力指標')
-       karyoku
+        st.write('補正後の攻撃力')
+        afterAttack
+        st.write('補正後のクリダメ')
+        afterCd
+        st.write('補正後のクリ率')
+        afterCp
+        st.write('火力指標')
+        karyoku

@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-st.title('サマナクロ攻撃クリダメクリ率計算機')
+st.title('サマナクロ召喚獣攻撃クリダメクリ率計算機')
 
 coll1, coll2, coll3 = st.columns(3)
 with coll1:

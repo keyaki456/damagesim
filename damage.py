@@ -298,3 +298,13 @@ st.write('攻撃力*(1-クリ率/100)+攻撃力*(1+クリダメ/100)*(クリ率/
 st.write('これが最も大きくなるように工夫しよう！')
 karyoku = afterAttack*(1-afterCp/100)+afterAttack*(1+afterCd/100)*(afterCp/100)
 karyoku
+
+with st.sidebar:
+       st.write('補正後の攻撃力')
+       afterAttack
+       st.write('補正後のクリダメ')
+       afterCd
+       st.write('補正後のクリ率')
+       afterCp
+       st.write('火力指標')
+       karyoku

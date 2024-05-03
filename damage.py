@@ -297,7 +297,7 @@ with st.sidebar:
         afterCd
         st.write('補正後のクリ率')
         afterCp
-        st.write('火力指標')
+        st.title('火力指標')
         st.write('攻撃力*(1-クリ率/100)+攻撃力*(1+クリダメ/100)*(クリ率/100)のこと')
         st.write('これが最も大きくなるように工夫しよう！')
         karyoku

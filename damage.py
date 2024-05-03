@@ -8,9 +8,11 @@ coll1, coll2, coll3 = st.columns(3)
 with coll1:
     Attack = st.number_input('Lv.90時の素の攻撃力(ペルナとアルヘンは1911)',0,3000,1911)
     accAz  = st.number_input('アカウントスキルの召喚獣攻撃実数',0,200,200)
+    accCd  = st.number_input('アカウントスキルの召喚獣クリダメ',0.0,10.5,10.5)
 with coll2:
     Cridam = st.number_input('素のクリダメ(ペルナとアルヘンは30)',0,400,30)
     accAp  = st.number_input('アカウントスキルの召喚獣攻撃パーセント',0,15,15)
+    accCp  = st.number_input('アカウントスキルの召喚獣クリ率',0.0,7.5,7.5)
 with coll3:
     Criper = st.number_input('素のクリ率(ペルナは15 アルヘンは21)',0,100,21)
 
@@ -237,7 +239,7 @@ afterAttack = afterAttack * AbuffDic[AttBuff]
 afterAttack
 
 st.title('補正後のクリダメ')
-afterCd = Cridam + zuCridam
+afterCd = Cridam + zuCridam + accCd
 if equipWeapon=='火' : afterCd = afterCd + (weaponCdDic[fireweapon]) + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
 if equipWeapon=='水' : afterCd = afterCd + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon]) + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
 if equipWeapon=='風' : afterCd = afterCd + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon]) + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
@@ -266,7 +268,7 @@ if afterCd>400 : afterCd=400
 afterCd
 
 st.title('補正後のクリ率')
-afterCp = Criper + zuCriper
+afterCp = Criper + zuCriper + accCp
 if equipWeapon=='火' : afterCp = afterCp + (weaponCpDic[fireweapon]) + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
 if equipWeapon=='水' : afterCp = afterCp + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon]) + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
 if equipWeapon=='風' : afterCp = afterCp + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon]) + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])

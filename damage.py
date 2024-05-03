@@ -47,45 +47,46 @@ with st.container():
         r1Main = st.selectbox('ルーン1主オプ',['攻撃実数'])
         r2Main = st.selectbox('ルーン2主オプ',['その他','攻撃実数','攻撃%','クリダメ','クリ率'])
         r3Main = st.selectbox('ルーン3主オプ',['防御実数'])
-        moukou = st.checkbox('猛攻セット')
-        gekido = st.checkbox('激怒セット')
-        yaiba  = st.slider('刃セット何セット',0,3)
     with col4:
         r4Main = st.selectbox('ルーン4主オプ',['その他','攻撃実数','攻撃%','クリダメ','クリ率'])
         r5Main = st.selectbox('ルーン5主オプ',['体力実数'])
         r6Main = st.selectbox('ルーン6主オプ',['その他','攻撃実数','攻撃%','クリダメ','クリ率'])
+        moukou = st.checkbox('猛攻セット')
+        gekido = st.checkbox('激怒セット')
+        yaiba  = st.slider('刃セット何セット',0,3)
+
 
 container = st.container(border=True)
 with st.container():
         st.write('ルーンのサブオプション')
         colll1, colll2, colll3,colll4, colll5, colll6 = st.columns(6)
         with colll1:
-                r1Az = st.number_input('ルーン1攻撃実数', 0.0)
+                r1Az = st.number_input('ルーン1攻撃実数', 0)
                 r1Ap = st.number_input('ルーン1攻撃%', 0.0)
                 r1Cd = st.number_input('ルーン1クリダメ', 0.0)
                 r1Cp = st.number_input('ルーン1クリ率', 0.0)
         with colll2:
-                r2Az = st.number_input('ルーン2攻撃実数', 0.0)
+                r2Az = st.number_input('ルーン2攻撃実数', 0)
                 r2Ap = st.number_input('ルーン2攻撃%', 0.0)
                 r2Cd = st.number_input('ルーン2クリダメ', 0.0)
                 r2Cp = st.number_input('ルーン2クリ率', 0.0)
         with colll3:
-                r3Az = st.number_input('ルーン3攻撃実数', 0.0)
+                r3Az = st.number_input('ルーン3攻撃実数', 0)
                 r3Ap = st.number_input('ルーン3攻撃%', 0.0)
                 r3Cd = st.number_input('ルーン3クリダメ', 0.0)
                 r3Cp = st.number_input('ルーン3クリ率', 0.0)
         with colll4:
-                r4Az = st.number_input('ルーン4攻撃実数', 0.0)
+                r4Az = st.number_input('ルーン4攻撃実数', 0)
                 r4Ap = st.number_input('ルーン4攻撃%', 0.0)
                 r4Cd = st.number_input('ルーン4クリダメ', 0.0)
                 r4Cp = st.number_input('ルーン4クリ率', 0.0)
         with colll5:
-                r5Az = st.number_input('ルーン5攻撃実数', 0.0)
+                r5Az = st.number_input('ルーン5攻撃実数', 0)
                 r5Ap = st.number_input('ルーン5攻撃%', 0.0)
                 r5Cd = st.number_input('ルーン5クリダメ', 0.0)
                 r5Cp = st.number_input('ルーン5クリ率', 0.0)
         with colll6:
-                r6Az = st.number_input('ルーン6攻撃実数', 0.0)
+                r6Az = st.number_input('ルーン6攻撃実数', 0)
                 r6Ap = st.number_input('ルーン6攻撃%', 0.0)
                 r6Cd = st.number_input('ルーン6クリダメ', 0.0)
                 r6Cp = st.number_input('ルーン6クリ率', 0.0)

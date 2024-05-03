@@ -181,9 +181,8 @@ PbuffDic={0:0,1:30,2:40,3:50,4:57,5:64,6:68,7:72,8:75,9:77,10:80}
 hondanaDic={0:0, 1:1.5, 2:3.0, 3:4.6}
 
 
-st.title('補正後の攻撃力')
-groupA = Attack + 158
 
+groupA = Attack + 158
 groupB = 100 + accAp + hondanaDic[hondana]
 if equipWeapon=='火' : groupB = groupB + (weaponApDic[fireweapon]) + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
 if equipWeapon=='水' : groupB = groupB + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon]) + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
@@ -207,7 +206,6 @@ if r3book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r3bo
 if r4book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r4book]
 if r5book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r5book]
 if r6book  in ('攻撃%S','攻撃%A','攻撃%B'): groupB = groupB + bookDic[r6book]
-
 groupC = accAz + zuAtta + star1 + star2 + star3 + kenkyuu
 if equipWeapon=='火' : groupC = groupC + (weaponAzDic[fireweapon]) + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
 if equipWeapon=='水' : groupC = groupC + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon]) + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
@@ -233,12 +231,9 @@ if r5book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC
 if r6book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r6book]
 if food=='攻撃+493': groupC = groupC + 493
 groupC = groupC + cloth + artifact
-
 afterAttack = (groupA * groupB /100) + groupC
 afterAttack = afterAttack * AbuffDic[AttBuff]
-afterAttack
 
-st.title('補正後のクリダメ')
 afterCd = Cridam + zuCridam + accCd
 if equipWeapon=='火' : afterCd = afterCd + (weaponCdDic[fireweapon]) + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
 if equipWeapon=='水' : afterCd = afterCd + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon]) + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
@@ -265,9 +260,7 @@ if r6book  in ('クリダメS','クリダメA','クリダメB'): afterCd = after
 afterCd = afterCd + DbuffDic[CdBuff]
 if food=='クリダメ+20.8%': afterCd = afterCd+20.8
 if afterCd>400 : afterCd=400
-afterCd
 
-st.title('補正後のクリ率')
 afterCp = Criper + zuCriper + accCp
 if equipWeapon=='火' : afterCp = afterCp + (weaponCpDic[fireweapon]) + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
 if equipWeapon=='水' : afterCp = afterCp + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon]) + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
@@ -294,13 +287,8 @@ if r6book  in ('クリ率S','クリ率A','クリ率B'): afterCp = afterCp + book
 afterCp = afterCp + PbuffDic[CpBuff]
 if food=='クリ率+11.4%': afterCp = afterCp+11.4
 if afterCp>100 : afterCp=100
-afterCp
 
-st.title('火力指標')
-st.write('攻撃力*(1-クリ率/100)+攻撃力*(1+クリダメ/100)*(クリ率/100)のこと')
-st.write('これが最も大きくなるように工夫しよう！')
 karyoku = afterAttack*(1-afterCp/100)+afterAttack*(1+afterCd/100)*(afterCp/100)
-karyoku
 
 with st.sidebar:
         st.write('補正後の攻撃力')
@@ -310,4 +298,6 @@ with st.sidebar:
         st.write('補正後のクリ率')
         afterCp
         st.write('火力指標')
+        st.write('攻撃力*(1-クリ率/100)+攻撃力*(1+クリダメ/100)*(クリ率/100)のこと')
+        st.write('これが最も大きくなるように工夫しよう！')
         karyoku

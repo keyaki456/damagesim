@@ -128,6 +128,7 @@ with st.container():
                artifact= st.number_input('AFの攻撃実数',0)
         with colllll3:
                CdBuff = st.number_input('クリダメバフレベル',0,10)
+               monsyo = st.number_input('紋章の攻撃実数(主オプとサブオプの和)',0)
         with colllll4:
                CpBuff = st.number_input('クリ率バフレベル',0,10)
         with colllll5:
@@ -230,7 +231,7 @@ if r4book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC
 if r5book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r5book]
 if r6book  in ('攻撃実数S','攻撃実数A','攻撃実数B'): groupC = groupC + bookDic[r6book]
 if food=='攻撃+493': groupC = groupC + 493
-groupC = groupC + cloth + artifact
+groupC = groupC + cloth + artifact + monsyo
 afterAttack = (groupA * groupB /100) + groupC
 afterAttack = afterAttack * AbuffDic[AttBuff]
 

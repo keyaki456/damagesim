@@ -303,11 +303,14 @@ with st.sidebar:
         st.write('これが最も大きくなるように工夫しよう！')
         karyoku
 
-st.title('解説')
-st.write(
-       '''
-攻撃力は
 
+
+tab1, tab2 = st.tabs(["攻撃力の計算式", "この計算機の使い方"])
+with tab1:
+        st.write(
+        '''
+攻撃力は
+        
         「召喚獣」のページで表示される攻撃力 = (Aグループ×Bグループ)+Cグループ
 
 で計算される。
@@ -370,3 +373,6 @@ Dグループ
 
 '''
 )
+        
+with tab2:
+       karyoku

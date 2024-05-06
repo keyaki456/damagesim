@@ -368,6 +368,7 @@ with tab2:
 with tab3:
         st.write('銀河石と魔法書をどう組み合わせると火力指標が最大になるかサジェストする機能')
         st.write('あくまでも目安として特級Aの値で計算する')
+        st.write('攻撃実数の銀河石と魔法書は無視する')
         dfginga = pd.DataFrame({
             '銀河石攻撃%'
                 :[6,5,5,4,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,0,0,0],
@@ -388,7 +389,74 @@ with tab3:
 
         sihyoCollumn=[]
         for i in range(0, 784, 1):
-               karyoku2=0
+               groupA2=Attack + 158
+               groupB2=100 + accAp + hondanaDic[hondana]
+               if equipWeapon=='火' : groupB2 = groupB2 + (weaponApDic[fireweapon]) + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
+               if equipWeapon=='水' : groupB2 = groupB2 + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon]) + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
+               if equipWeapon=='風' : groupB2 = groupB2 + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon]) + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
+               if equipWeapon=='光' : groupB2 = groupB2 + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon]) + (weaponApDic[darkweapon])/4 + (weaponApDic[supportweapon])
+               if equipWeapon=='闇' : groupB2 = groupB2 + (weaponApDic[fireweapon])/4 + (weaponApDic[waterweapon])/4 + (weaponApDic[windweapon])/4 + (weaponApDic[lightweapon])/4 + (weaponApDic[darkweapon]) + (weaponApDic[supportweapon])
+               if r2Main=='攻撃%' : groupB2 = groupB2 + mainOpDic['攻撃%']
+               if r4Main=='攻撃%' : groupB2 = groupB2 + mainOpDic['攻撃%']
+               if r6Main=='攻撃%' : groupB2 = groupB2 + mainOpDic['攻撃%']
+               if moukou==True: groupB2 = groupB2 + 35
+               groupB2 = groupB2 + r1Ap + r2Ap + r3Ap + r4Ap + r5Ap + r6Ap
+               gropuB2 = groupB2 + df.at[i,'銀河石攻撃%']*gingaDic['攻撃%A'] + df.at[i,'魔法書攻撃%']*bookDic['攻撃%A']
+               groupC2 = accAz + zuAtta + star1 + star2 + star3 + kenkyuu
+               if equipWeapon=='火' : groupC2 = groupC2 + (weaponAzDic[fireweapon]) + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
+               if equipWeapon=='水' : groupC2 = groupC2 + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon]) + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
+               if equipWeapon=='風' : groupC2 = groupC2 + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon]) + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
+               if equipWeapon=='光' : groupC2 = groupC2 + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon]) + (weaponAzDic[darkweapon])/4 + (weaponAzDic[supportweapon])
+               if equipWeapon=='闇' : groupC2 = groupC2 + (weaponAzDic[fireweapon])/4 + (weaponAzDic[waterweapon])/4 + (weaponAzDic[windweapon])/4 + (weaponAzDic[lightweapon])/4 + (weaponAzDic[darkweapon]) + (weaponAzDic[supportweapon])
+               if r1Main=='攻撃実数' : groupC2 = groupC2 + mainOpDic['攻撃実数']
+               if r2Main=='攻撃実数' : groupC2 = groupC2 + mainOpDic['攻撃実数']
+               if r4Main=='攻撃実数' : groupC2 = groupC2 + mainOpDic['攻撃実数']
+               if r6Main=='攻撃実数' : groupC2 = groupC2 + mainOpDic['攻撃実数']
+               groupC2 = groupC2 + r1Az + r2Az + r3Az + r4Az + r5Az + r6Az
+               if food=='攻撃+493': groupC2 = groupC2 + 493
+               groupC2 = groupC2 + cloth + artifact + monsyo
+               afterAttack2 = (groupA2 * groupB2 /100) + groupC2
+               afterAttack2 = afterAttack2 * AbuffDic[AttBuff]
+
+
+
+
+
+               afterCd2 = Cridam + zuCridam + accCd
+               if equipWeapon=='火' : afterCd2 = afterCd2 + (weaponCdDic[fireweapon]) + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
+               if equipWeapon=='水' : afterCd2 = afterCd2 + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon]) + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
+               if equipWeapon=='風' : afterCd2 = afterCd2 + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon]) + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
+               if equipWeapon=='光' : afterCd2 = afterCd2 + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon]) + (weaponCdDic[darkweapon])/4 + (weaponCdDic[supportweapon])
+               if equipWeapon=='闇' : afterCd2 = afterCd2 + (weaponCdDic[fireweapon])/4 + (weaponCdDic[waterweapon])/4 + (weaponCdDic[windweapon])/4 + (weaponCdDic[lightweapon])/4 + (weaponCdDic[darkweapon]) + (weaponCdDic[supportweapon])
+               if r2Main=='クリダメ' : afterCd2 = afterCd2 + mainOpDic['クリダメ']
+               if r4Main=='クリダメ' : afterCd2 = afterCd2 + mainOpDic['クリダメ']
+               if r6Main=='クリダメ' : afterCd2 = afterCd2 + mainOpDic['クリダメ']
+               if gekido==True: afterCd2 = afterCd2 + 40
+               afterCd2 = afterCd2 + df.at[i,'銀河石クリダメ']*gingaDic['クリダメA'] + df.at[i,'魔法書クリダメ']*bookDic['クリダメA']
+               afterCd2 = afterCd2 + DbuffDic[CdBuff]
+               if food=='クリダメ+20.8%': afterCd2 = afterCd2 + 20.8
+               if afterCd2>400 : afterCd2=400
+
+
+
+
+               afterCp2 = Criper + zuCriper + accCp
+               if equipWeapon=='火' : afterCp2 = afterCp2 + (weaponCpDic[fireweapon]) + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+               if equipWeapon=='水' : afterCp2 = afterCp2 + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon]) + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+               if equipWeapon=='風' : afterCp2 = afterCp2 + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon]) + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+               if equipWeapon=='光' : afterCp2 = afterCp2 + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon]) + (weaponCpDic[darkweapon])/4 + (weaponCpDic[supportweapon])
+               if equipWeapon=='闇' : afterCp2 = afterCp2 + (weaponCpDic[fireweapon])/4 + (weaponCpDic[waterweapon])/4 + (weaponCpDic[windweapon])/4 + (weaponCpDic[lightweapon])/4 + (weaponCpDic[darkweapon]) + (weaponCpDic[supportweapon])
+               if r2Main=='クリ率' : afterCp2 = afterCp2 + mainOpDic['クリ率']
+               if r4Main=='クリ率' : afterCp2 = afterCp2 + mainOpDic['クリ率']
+               if r6Main=='クリ率' : afterCp2 = afterCp2 + mainOpDic['クリ率']
+               afterCp2 = afterCp2 + yaiba*12
+               afterCp2 = afterCp2 + r1Cp + r2Cp + r3Cp + r4Cp + r5Cp + r6Cp
+               afterCp2 = afterCp2 + df.at[i,'銀河石クリ率']*gingaDic['クリ率A'] + df.at[i,'魔法書クリ率']*bookDic['クリ率A']
+               afterCp2 = afterCp2 + PbuffDic[CpBuff]
+               if food=='クリ率+11.4%': afterCp2 = afterCp2+11.4
+               if afterCp2>100 : afterCp2=100
+
+               karyoku2 = afterAttack2*(1-afterCp2/100)+afterAttack2*(1+afterCd2/100)*(afterCp2/100)
                sihyoCollumn.append(karyoku2)
         
         dfsihyo = pd.DataFrame(sihyoCollumn)

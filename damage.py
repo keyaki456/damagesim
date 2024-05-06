@@ -466,22 +466,18 @@ with tab3:
         df=df.sort_values('火力指標',ascending=False)
         df
 
-        text='攻撃%特級Aの銀河石を' + str(df.at[0,'銀河石攻撃%']) + '個'
+
+
+        text='攻撃%特級Aの銀河石を' + str(int(df.iloc[0]['銀河石攻撃%'])) + '個'
         st.write(text)
-        text='クリダメ特級Aの銀河石を' + str(df.at[0,'銀河石クリダメ']) + '個'
+        text='クリダメ特級Aの銀河石を' + str(int(df.iloc[0]['銀河石クリダメ'])) + '個'
         st.write(text)
-        text='クリ率特級Aの銀河石を' + str(df.at[0,'銀河石クリ率']) + '個'
+        text='クリ率特級Aの銀河石を' + str(int(df.iloc[0]['銀河石クリ率'])) + '個'
         st.write(text)
-        text='攻撃%特級Aの魔法書を' + str(df.at[0,'魔法書攻撃%']) + '冊'
+        text='攻撃%特級Aの魔法書を' + str(int(df.iloc[0]['魔法書攻撃%'])) + '冊'
         st.write(text)
-        text='クリダメ特級Aの魔法書を' + str(df.at[0,'魔法書クリダメ']) + '冊'
+        text='クリダメ特級Aの魔法書を' + str(int(df.iloc[0]['魔法書クリダメ'])) + '冊'
         st.write(text)
-        text='クリ率特級Aの魔法書を' + str(df.at[0,'魔法書クリ率']) + '冊'
+        text='クリ率特級Aの魔法書を' + str(int(df.iloc[0]['魔法書クリ率'])) + '冊'
         st.write(text)
         st.write('装着すると、火力指標が最大になる')
-        text='この場合の補正後の攻撃力は' + str(afterAttack2)
-        st.write(text)
-        text='この場合の補正後のクリダメは' + str(afterCd2)
-        st.write(text)
-        text='この場合の補正後のクリ率は' + str(afterCp2)
-        st.write(text)

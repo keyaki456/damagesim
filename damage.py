@@ -1,8 +1,9 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(layout="wide")
 
-st.title('サマナクロ召喚獣攻撃クリダメクリ率計算機ver超過1赤')
+st.title('サマナクロ召喚獣攻撃クリダメクリ率計算機')
 
 with st.container(border=True):
         st.write('素のステータスとアカウントスキル')
@@ -363,3 +364,14 @@ with tab2:
        st.write('火力指標というのは造語です')
        st.write('火力指標にスキル倍率と防御減衰と与ダメバフ被ダメデバフ等を掛けたら')
        st.write('最終ダメージの期待値になります')
+
+with tab3:
+        st.write('銀河石と魔法書をどう組み合わせると火力指標が最大になるかサジェストする機能')
+        st.write('特級Aの値で計算する')
+        df = pd.DataFrame({
+            '銀河石攻撃%' :['6個', '5個', '5個'],
+            '銀河石クリダメ' : ['0個', '1個', '0個'],
+            '銀河石クリ率' : ['0個', '0個', '1個'],
+            '火力指標':[0,0,0]
+            })
+        df

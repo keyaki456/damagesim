@@ -387,8 +387,9 @@ with tab3:
         df=dfginga.join(dfmahou,how='cross')
 
         sihyoCollumn=[]
-        for i in range(0, 783, 1):
-               sihyoCollumn.append(0)
+        for i in range(0, 784, 1):
+               karyoku2=0
+               sihyoCollumn.append(karyoku2)
         
         dfsihyo = pd.DataFrame(sihyoCollumn)
         dfsihyo.columns=['火力指標']

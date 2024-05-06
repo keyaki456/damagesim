@@ -386,11 +386,11 @@ with tab3:
             })
         df=dfginga.join(dfmahou,how='cross')
 
-        sihyo=[]
+        sihyoCollumn=[]
         for i in range(0, 783, 1):
-               sihyo.append(0)
+               sihyoCollumn.append(0)
         
-        dfsihyo = pd.DataFrame(sihyo)
-        dfsihyo.column=['火力指標']
+        dfsihyo = pd.DataFrame(sihyoCollumn)
+        dfsihyo.columns=['火力指標']
         df=df.join(dfsihyo)
         df

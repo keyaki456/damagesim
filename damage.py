@@ -465,9 +465,8 @@ with tab3:
         df=df.join(dfsihyo)
         df=df.sort_values('火力指標',ascending=False)
         df
-
-
-
+        
+        st.write('このデータテーブルから分かるように')
         text='攻撃%特級Aの銀河石を' + str(int(df.iloc[0]['銀河石攻撃%'])) + '個'
         st.write(text)
         text='クリダメ特級Aの銀河石を' + str(int(df.iloc[0]['銀河石クリダメ'])) + '個'

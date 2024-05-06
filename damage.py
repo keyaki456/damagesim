@@ -385,5 +385,12 @@ with tab3:
                 :[0,0,1,0,1,2,0,1,2,3,0,1,2,3,4,0,1,2,3,4,5,0,1,2,3,4,5,6]
             })
         df=dfginga.join(dfmahou,how='cross')
-                        
+
+        sihyo=[]
+        for i in range(0, 783, 1):
+               sihyo.append(0)
+        
+        dfsihyo = pd.DataFrame(sihyo)
+        dfsihyo.column=['火力指標']
+        df=df.join(dfsihyo)
         df

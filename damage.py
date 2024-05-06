@@ -384,5 +384,6 @@ with tab3:
             '魔法書クリ率'
                 :[0,0,1,0,1,2,0,1,2,3,0,1,2,3,4,0,1,2,3,4,5,0,1,2,3,4,5,6]
             })
-        df=dfginga.join(dfmahou)
+        df=dfginga.join(dfmahou,how='cross')
+                        
         df

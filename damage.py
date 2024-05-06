@@ -4,20 +4,21 @@ st.set_page_config(layout="wide")
 
 st.title('サマナクロ召喚獣攻撃クリダメクリ率計算機')
 
-coll1, coll2, coll3 = st.columns(3)
-with coll1:
-    Attack = st.number_input('Lv.90時の素の攻撃力(ペルナとアルヘンは1911)',0,3000,1911)
-    accAz  = st.number_input('アカウントスキルの召喚獣攻撃実数',0,200,200)
-    accCd  = st.number_input('アカウントスキルの召喚獣クリダメ',0.0,10.5,10.5)
-with coll2:
-    Cridam = st.number_input('素のクリダメ(ペルナとアルヘンは30)',0,400,30)
-    accAp  = st.number_input('アカウントスキルの召喚獣攻撃パーセント',0,15,15)
-    accCp  = st.number_input('アカウントスキルの召喚獣クリ率',0.0,7.5,7.5)
-with coll3:
-    Criper = st.number_input('素のクリ率(ペルナは15 アルヘンは21)',0,100,21)
+with st.container(border=True):
+        st.write('素のステータスとアカウントスキル')
+        coll1, coll2, coll3 = st.columns(3)
+        with coll1:
+                Attack = st.number_input('Lv.90時の素の攻撃力(ペルナとアルヘンは1911)',0,3000,1911)
+                accAz  = st.number_input('アカウントスキルの召喚獣攻撃実数',0,200,200)
+                accCd  = st.number_input('アカウントスキルの召喚獣クリダメ',0.0,10.5,10.5)
+        with coll2:
+                Cridam = st.number_input('素のクリダメ(ペルナとアルヘンは30)',0,400,30)
+                accAp  = st.number_input('アカウントスキルの召喚獣攻撃パーセント',0,15,15)
+                accCp  = st.number_input('アカウントスキルの召喚獣クリ率',0.0,7.5,7.5)
+        with coll3:
+                Criper = st.number_input('素のクリ率(ペルナは15 アルヘンは21)',0,100,21)
 
-container = st.container(border=True)
-with st.container():
+with st.container(border=True):
     st.write('図鑑効果')
     collllll1, collllll2,collllll3 = st.columns(3)
     with collllll1:
@@ -33,8 +34,7 @@ with st.container():
            star3    = st.number_input('その属性の星3召喚獣の図鑑効果攻撃実数',0)
            
 
-container = st.container(border=True)
-with st.container():
+with st.container(border=True):
     st.write('赤宝石およびルーンの主オプション')
     col1, col2,col3,col4 = st.columns(4)
     with col1:
@@ -58,8 +58,7 @@ with st.container():
         yaiba  = st.slider('刃セット何セット',0,3)
 
 
-container = st.container(border=True)
-with st.container():
+with st.container(border=True):
         st.write('ルーンのサブオプション')
         colll1, colll2, colll3,colll4, colll5, colll6 = st.columns(6)
         with colll1:
@@ -93,8 +92,7 @@ with st.container():
                 r6Cd = st.number_input('ルーン6クリダメ', 0.0)
                 r6Cp = st.number_input('ルーン6クリ率', 0.0)
 
-container = st.container(border=True)
-with st.container():
+with st.container(border=True):
         st.write('ルーンの銀河石と本')
         collll1, collll2, collll3,collll4, collll5, collll6 = st.columns(6)
         with collll1:
@@ -116,8 +114,7 @@ with st.container():
                 r6ginga = st.selectbox('ルーン6の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
                 r6book = st.selectbox('ルーン6の魔法書',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
 
-container = st.container(border=True)
-with st.container():
+with st.container(border=True):
         st.write('その他の情報')
         colllll1, colllll2, colllll3,colllll4,colllll5 = st.columns(5)
         with colllll1:
@@ -303,73 +300,46 @@ with st.sidebar:
         st.write('これが最も大きくなるように工夫しよう！')
         karyoku
 
-
+st.title('ここまでを入力すると左のサイドバーに計算結果が自動で表示される')
+st.write('以下は解説')
 
 tab1, tab2 = st.tabs(["攻撃力の計算式", "この計算機の使い方"])
 with tab1:
-        st.write(
-        '''
-攻撃力は
+        st.write('''
+        攻撃力は
         
         「召喚獣」のページで表示される攻撃力 = (Aグループ×Bグループ)+Cグループ
 
-で計算される。
+        で計算される。
 
-ABCグループの内訳は以下
+        ABCグループの内訳は以下''')
+        with st.expander("Aグループ"):
+                st.write('Lv.90時の素の攻撃力(ペルナは1911 アルヘンは1911)')
+                st.write('タワー効果攻撃実数+158')
+        with st.expander("Bグループ(%系全般)"):
+                st.write('アカウントスキル召喚獣の攻撃%')
+                st.write('赤宝石攻撃%')
+                st.write('ルーン主オプ攻撃%')
+                st.write('ルーンサブオプ攻撃%')
+                st.write('猛攻セット')
+                st.write('銀河石攻撃%')
+                st.write('魔法書攻撃%')
+                st.write('本棚の魔法')
+        with st.expander("Cグループ(タワー効果以外の実数系全般)"):
+                st.write('アカウントスキル召喚獣の攻撃実数')
+                st.write('図鑑Lv(星1+星2+星3+本体)効果')
+                st.write('赤宝石攻撃実数')
+                st.write('ルーン主オプ攻撃実数')
+                st.write('ルーンサブオプ攻撃実数')
+                st.write('衣装効果')
+                st.write('図鑑研究')
+                st.write('料理')
+                st.write('銀河石攻撃実数')
+                st.write('魔法書攻撃実数')
+                st.write('アーティファクト')
+                st.write('紋章攻撃実数')
 
-Aグループ
-
-        Lv.90時の素の攻撃力(ペルナは1911　アルヘンは1911)
-
-        塔+158 
-
-Bグループ(%系全般)
-
-        アカウントスキル召喚獣の攻撃%
-
-        赤宝石攻撃%
-
-        ルーン主オプ攻撃%
-
-        ルーンサブオプ攻撃%
-
-        猛攻セット
-
-        銀河石攻撃%
-
-        魔法書攻撃%
-
-        本棚の魔法
-
-Cグループ(実数系全般)
-
-        アカウントスキル召喚獣の攻撃実数
-
-        図鑑Lv(星1+星2+星3+本体)効果
-
-        赤宝石攻撃実数
-
-        ルーン主オプ攻撃実数   
-
-        ルーンサブオプ攻撃実数
-
-        衣装効果
-
-        図鑑研究
-
-        料理
-
-        銀河石攻撃実数
-
-        魔法書攻撃実数
-
-        アーティファクト
-
-        紋章攻撃実数
-
-
-
-            
+        st.write('''   
 例外
 Dグループ
 

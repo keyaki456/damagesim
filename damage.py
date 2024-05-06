@@ -479,3 +479,9 @@ with tab3:
         text='クリ率特級Aの魔法書を' + str(df.at[0,'魔法書クリ率']) + '冊'
         st.write(text)
         st.write('装着すると、火力指標が最大になる')
+        text='この場合の補正後の攻撃力は' + str(afterAttack2)
+        st.write(text)
+        text='この場合の補正後のクリダメは' + str(afterCd2)
+        st.write(text)
+        text='この場合の補正後のクリ率は' + str(afterCp2)
+        st.write(text)

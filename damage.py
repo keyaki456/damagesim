@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-st.title('サマナクロ召喚獣攻撃クリダメクリ率計算機')
+st.title('サマナクロ召喚獣攻撃クリダメクリ率計算機ver超過1赤')
 
 with st.container(border=True):
         st.write('素のステータスとアカウントスキル')

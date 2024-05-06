@@ -93,7 +93,7 @@ with st.container(border=True):
                 r6Cp = st.number_input('ルーン6クリ率', 0.0)
 
 with st.container(border=True):
-        st.write('ルーンの銀河石と本')
+        st.write('ルーンの銀河石と魔法書')
         collll1, collll2, collll3,collll4, collll5, collll6 = st.columns(6)
         with collll1:
                 r1ginga = st.selectbox('ルーン1の銀河石',['その他','攻撃実数S', '攻撃実数A','攻撃実数B','攻撃%S', '攻撃%A','攻撃%B','クリダメS', 'クリダメA','クリダメB','クリ率S', 'クリ率A','クリ率B'])
@@ -303,7 +303,7 @@ with st.sidebar:
 st.title('ここまでを入力すると左のサイドバーに計算結果が自動で表示される')
 st.write('以下は解説')
 
-tab1, tab2 = st.tabs(["攻撃力の計算式", "この計算機の使い方"])
+tab1, tab2, tab3 = st.tabs(["攻撃力の計算式", "この計算機の使い方", "銀河石魔法書サジェスト機能"])
 with tab1:
         st.write('''
         攻撃力は

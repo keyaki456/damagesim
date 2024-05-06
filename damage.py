@@ -367,6 +367,7 @@ with tab2:
 
 with tab3:
         st.write('銀河石と魔法書をどう組み合わせると火力指標が最大になるかサジェストする機能')
+        st.write('上の入力欄の、ルーンの銀河石と魔法書以外を入力すると自動で計算される')
         st.write('あくまでも目安として特級Aの値で計算する')
         st.write('攻撃実数の銀河石と魔法書は無視する')
         dfginga = pd.DataFrame({
@@ -462,4 +463,19 @@ with tab3:
         dfsihyo = pd.DataFrame(sihyoCollumn)
         dfsihyo.columns=['火力指標']
         df=df.join(dfsihyo)
+        df=df.sort_values('火力指標',ascending=False)
         df
+
+        text='攻撃%特級Aの銀河石を' + str(df.at[0,'銀河石攻撃%']) + '個'
+        st.write(text)
+        text='クリダメ特級Aの銀河石を' + str(df.at[0,'銀河石クリダメ']) + '個'
+        st.write(text)
+        text='クリ率特級Aの銀河石を' + str(df.at[0,'銀河石クリ率']) + '個'
+        st.write(text)
+        text='攻撃%特級Aの魔法書を' + str(df.at[0,'魔法書攻撃%']) + '冊'
+        st.write(text)
+        text='クリダメ特級Aの魔法書を' + str(df.at[0,'魔法書クリダメ']) + '冊'
+        st.write(text)
+        text='クリ率特級Aの魔法書を' + str(df.at[0,'魔法書クリ率']) + '冊'
+        st.write(text)
+        st.write('装着すると、火力指標が最大になる')

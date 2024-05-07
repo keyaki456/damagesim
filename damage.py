@@ -472,6 +472,12 @@ with tab3:
         dfsihyo = pd.DataFrame(attackCollumn)
         dfsihyo.columns=['補正後の攻撃力']
         df=df.join(dfsihyo)
+        dfsihyo = pd.DataFrame(CdCollumn)
+        dfsihyo.columns=['補正後のクリダメ']
+        df=df.join(dfsihyo)
+        dfsihyo = pd.DataFrame(CpCollumn)
+        dfsihyo.columns=['補正後のクリ率']
+        df=df.join(dfsihyo)
 
         df=df.sort_values('火力指標',ascending=False)
         df

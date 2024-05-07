@@ -389,6 +389,9 @@ with tab3:
         df=dfginga.join(dfmahou,how='cross')
 
         sihyoCollumn=[]
+        attackCollumn=[]
+        CpCollumn=[]
+        CdCollumn=[]
         for i in range(0, 784, 1):
                groupA2=Attack + 158
                groupB2=100 + accAp + hondanaDic[hondana]
@@ -458,11 +461,18 @@ with tab3:
                if afterCp2>100 : afterCp2=100
 
                karyoku2 = afterAttack2*(1-afterCp2/100)+afterAttack2*(1+afterCd2/100)*(afterCp2/100)
+               attackCollumn.append(afterAttack2)
+               CdCollumn.append(afterCd2)
+               CpCollumn.append(afterCp2)
                sihyoCollumn.append(karyoku2)
         
         dfsihyo = pd.DataFrame(sihyoCollumn)
         dfsihyo.columns=['火力指標']
         df=df.join(dfsihyo)
+        dfsihyo = pd.DataFrame(attackCollumn)
+        dfsihyo.columns=['補正後の攻撃力']
+        df=df.join(dfsihyo)
+
         df=df.sort_values('火力指標',ascending=False)
         df
         
